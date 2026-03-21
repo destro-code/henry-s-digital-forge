@@ -6,7 +6,7 @@ const experiences = [
   {
     type: 'work' as const,
     role: 'Full-Stack Web Developer',
-    company: 'Adglam',
+    company: 'Artemis',
     period: 'Jan 2024 – Jan 2025',
     location: 'Remote',
     points: [
