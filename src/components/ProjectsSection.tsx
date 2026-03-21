@@ -22,7 +22,7 @@ const projects = [
     tech: ['React', 'Next.js', 'TypeScript', 'Tailwind'],
   },
   {
-    title: 'Carl Smith Group',
+    title: 'CarlSmith Group',
     url: 'https://carlsmithgroup.com.ng',
     description: 'Corporate business website for a Nigerian conglomerate, featuring modern design and optimized performance.',
     problem: 'Corporate group needed a professional digital presence that reflects their brand authority.',
@@ -47,6 +47,15 @@ const projects = [
     solution: 'Built an animated gallery with lazy loading, responsive grid layouts, and smooth transitions.',
     impact: 'Fast, visually stunning gallery experience with optimized image delivery.',
     tech: ['React', 'CSS3', 'JavaScript', 'Vercel'],
+  },
+  {
+    title: 'WorkFlow Pro',
+    url: 'https://taskora-mauve.vercel.app/',
+    description: 'A modern project management SaaS dashboard built as the frontend and backend foundation for a workspace collaboration product, with auth flows, dashboard UI, project views, and Supabase-backed architecture groundwork.',
+    problem: 'Teams needed a centralized dashboard experience to organize projects and track activity without relying on scattered tools.',
+    solution: 'Developed a structured dashboard interface with clear navigation, scalable UI patterns, and a professional layout suited for task and project management.',
+    impact: 'Delivered a strong product-style interface that improves workflow visibility and presents a polished SaaS experience.',
+    tech: ['React', 'Typescript', 'Tailwind', 'Supabase'],
   },
   {
     title: 'Movie App',
