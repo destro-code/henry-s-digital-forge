@@ -6,10 +6,10 @@ const projects = [
   {
     title: 'Adglam',
     url: 'https://adglam.vercel.app/',
-    description: 'Dynamic product discovery platform with real-time filters, secure Stripe payment flows, and optimized database schemas for high conversion.',
-    problem: 'E-commerce platform needed a modern, high-performance product discovery experience with secure checkout.',
-    solution: 'Built with React + TypeScript + Tailwind, implemented dynamic filtering, Stripe integration, and optimized caching strategies.',
-    impact: 'Improved conversion rates and reduced checkout friction. Enhanced mobile accessibility for product listings.',
+    description: 'Beauty services website for a professional makeup artist brand in Benin City, designed to present services, brand identity, and client information in a polished, modern way.',
+    problem: 'The brand needed a professional online presence that could showcase its beauty services clearly and attract potential clients.',
+    solution: 'Built a clean, responsive website with a strong visual hierarchy, smooth presentation, and mobile-friendly layout suited to a beauty brand.',
+    impact: 'Improved brand credibility and gave the business a more professional digital presence for client discovery and inquiries.',
     tech: ['React', 'TypeScript', 'Tailwind', 'Stripe', 'Node.js'],
   },
   {
