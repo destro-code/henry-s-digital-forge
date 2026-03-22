@@ -57,6 +57,15 @@ const projects = [
     impact: 'Delivered a strong product-style interface that improves workflow visibility and presents a polished SaaS experience.',
     tech: ['React', 'Typescript', 'Tailwind', 'Supabase'],
   },
+    {
+    title: 'Crypto Pulse',
+    url: 'https://cryptopulse-live.vercel.app/',
+    description: 'Real-time cryptocurrency tracking dashboard for monitoring live market prices, trends, and portfolio activity.',
+    problem: 'Crypto users needed a clean way to follow live prices, compare assets, and stay updated without dealing with cluttered interfaces.',
+    solution: 'Built a responsive crypto dashboard with live market data, interactive charts, search and filtering, watchlists, and alert-style tracking features.',
+    impact: 'Delivered a fast, user-friendly experience for tracking crypto markets and monitoring favorite coins across multiple currencies.',
+    tech: ['React', 'Typescript', 'Tailwind', 'API Integration', 'Supabase'],
+  },
   {
     title: 'Movie App',
     url: 'https://movie-app1-lake.vercel.app/',
