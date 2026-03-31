@@ -43,7 +43,7 @@ const experiences = [
     type: 'education' as const,
     role: 'ProDev Frontend — Professional Program',
     company: 'ALX Africa',
-    period: '2024',
+    period: '2025',
     location: '',
     points: [
       'Practical projects covering Next.js, React Native, CI/CD, Docker and modern frontend engineering practices.',
