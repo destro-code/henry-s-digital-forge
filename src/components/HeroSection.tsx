@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ArrowDown, Download } from 'lucide-react';
+import { ArrowDown, Download, Github, Linkedin } from 'lucide-react';
 import NeuralNetwork from './NeuralNetwork';
 
 export default function HeroSection() {
@@ -17,19 +17,20 @@ export default function HeroSection() {
         </motion.h1>
 
         <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.6 }} className="text-muted-foreground text-base md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
-          Building modern web applications with <span className="text-primary">4+ years of hands-on development experience</span> across frontend and backend technologies.
+          Building modern, production-ready web applications with <span className="text-primary">4+ years of hands-on development experience</span> across frontend and backend technologies.
         </motion.p>
 
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.8 }} className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <a href="#projects" className="px-8 py-3 rounded-lg bg-primary text-primary-foreground font-semibold hover:bg-primary/90 transition-all box-glow">View My Work</a>
-          <a
-            href="/Henry-Mosiali-CV.pdf"
-            download="Henry-Mosiali-CV.pdf"
-            className="px-8 py-3 rounded-lg border border-primary/30 text-primary hover:bg-primary/10 transition-all flex items-center gap-2"
-          >
+          <a href="/Henry-Mosiali-CV.pdf" download="Henry-Mosiali-CV.pdf" className="px-8 py-3 rounded-lg border border-primary/30 text-primary hover:bg-primary/10 transition-all flex items-center gap-2">
             <Download className="w-4 h-4" />
             Download CV
           </a>
+        </motion.div>
+
+        <motion.div initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 1 }} className="flex justify-center gap-5 mt-7">
+          <a href="https://github.com/destro-code" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-muted-foreground hover:text-primary transition-colors"><Github className="w-5 h-5" /></a>
+          <a href="https://www.linkedin.com/in/henrymosiali" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-muted-foreground hover:text-primary transition-colors"><Linkedin className="w-5 h-5" /></a>
         </motion.div>
       </div>
 
