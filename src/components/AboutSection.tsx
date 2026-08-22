@@ -1,13 +1,12 @@
-import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Server, Layout, Database, Cloud } from 'lucide-react';
 
 const highlights = [
-  { icon: Server, label: 'Backend Architecture', desc: 'Node.js, Express, RESTful APIs' },
-  { icon: Layout, label: 'Frontend Engineering', desc: 'React, Next.js, TypeScript' },
-  { icon: Database, label: 'Database Design', desc: 'MongoDB, Redis, Schema optimization' },
-  { icon: Cloud, label: 'DevOps & Cloud', desc: 'Docker, CI/CD, Vercel' },
+  { icon: Server, label: 'Backend Development', desc: 'Node.js, Express, RESTful APIs' },
+  { icon: Layout, label: 'Frontend Development', desc: 'React, Next.js, TypeScript' },
+  { icon: Database, label: 'Data & Integration', desc: 'MongoDB, Redis, API integration' },
+  { icon: Cloud, label: 'Tools & Deployment', desc: 'Docker, CI/CD, Vercel' },
 ];
 
 export default function AboutSection() {
@@ -25,8 +24,8 @@ export default function AboutSection() {
         >
           <p className="font-mono text-primary text-sm tracking-widest uppercase mb-3">// About Me</p>
           <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-8">
-            Architecting Digital<br />
-            <span className="text-primary text-glow">Experiences</span>
+            Building for the Web<br />
+            <span className="text-primary text-glow">Since 2020</span>
           </h2>
         </motion.div>
 
@@ -37,13 +36,13 @@ export default function AboutSection() {
             transition={{ duration: 0.7, delay: 0.2 }}
           >
             <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-6">
-              Results-driven Full-Stack Web Developer with 6+ years building production web and mobile applications. I specialize in turning product requirements into fast, maintainable, and accessible interfaces backed by resilient backend services.
+              I've been exploring and building for the web since 2020, starting with the fundamentals and gradually developing into full-stack development.
             </p>
             <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-6">
-              My approach centers on clean architecture, performance optimization, and seamless user experiences. Whether it's a high-traffic e-commerce platform or a real-time edtech application, I deliver solutions that scale.
+              Over the years, I've worked across frontend and backend technologies to build responsive websites, dashboards, APIs, business platforms, and full-stack applications.
             </p>
             <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
-              Based in <span className="text-primary">Lagos, Nigeria</span> — working with remote teams worldwide.
+              Today, I focus on building clean, scalable, and user-focused web experiences while continuing to deepen my engineering skills and take on more complex challenges.
             </p>
           </motion.div>
 
