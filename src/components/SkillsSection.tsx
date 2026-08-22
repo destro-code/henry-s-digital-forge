@@ -4,42 +4,15 @@ import { useRef } from 'react';
 const skillCategories = [
   {
     title: 'Frontend',
-    skills: [
-      { name: 'React / Next.js', level: 95 },
-      { name: 'TypeScript', level: 92 },
-      { name: 'React Native', level: 80 },
-      { name: 'Tailwind CSS', level: 95 },
-      { name: 'HTML5 / CSS3', level: 98 },
-    ],
+    skills: ['React', 'Next.js', 'TypeScript', 'JavaScript', 'Tailwind CSS', 'HTML / CSS'],
   },
   {
     title: 'Backend & APIs',
-    skills: [
-      { name: 'Node.js', level: 95 },
-      { name: 'Express', level: 92 },
-      { name: 'MongoDB', level: 88 },
-      { name: 'RESTful API Design', level: 93 },
-      { name: 'Redis', level: 75 },
-    ],
+    skills: ['Node.js', 'Express', 'REST APIs', 'MongoDB', 'Mongoose', 'Redis'],
   },
   {
-    title: 'DevOps & Tools',
-    skills: [
-      { name: 'Docker', level: 80 },
-      { name: 'CI/CD', level: 82 },
-      { name: 'Git / GitHub', level: 95 },
-      { name: 'Vercel', level: 90 },
-      { name: 'Webpack / Vite', level: 88 },
-    ],
-  },
-  {
-    title: 'Testing & Quality',
-    skills: [
-      { name: 'Jest', level: 82 },
-      { name: 'Performance Optimization', level: 90 },
-      { name: 'Accessibility (WCAG)', level: 85 },
-      { name: 'Cross-browser Testing', level: 88 },
-    ],
+    title: 'Tools & Workflow',
+    skills: ['Git', 'GitHub', 'Docker', 'Vercel', 'Vite', 'CI/CD'],
   },
 ];
 
@@ -58,11 +31,14 @@ export default function SkillsSection() {
         >
           <p className="font-mono text-primary text-sm tracking-widest uppercase mb-3">// Skills</p>
           <h2 className="text-3xl md:text-5xl font-bold text-foreground">
-            Technical <span className="text-primary text-glow">Proficiency</span>
+            Technologies I <span className="text-primary text-glow">Work With</span>
           </h2>
+          <p className="text-muted-foreground max-w-2xl mt-5 leading-relaxed">
+            A practical toolkit spanning frontend development, backend services, APIs, data, and modern deployment workflows.
+          </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
+        <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
           {skillCategories.map((cat, catIndex) => (
             <motion.div
               key={cat.title}
@@ -75,22 +51,14 @@ export default function SkillsSection() {
                 <span className="w-2 h-2 rounded-full bg-primary animate-pulse-glow" />
                 {cat.title}
               </h3>
-              <div className="space-y-4">
-                {cat.skills.map((skill, i) => (
-                  <div key={skill.name}>
-                    <div className="flex justify-between text-sm mb-1.5">
-                      <span className="text-foreground/80">{skill.name}</span>
-                      <span className="font-mono text-primary text-xs">{skill.level}%</span>
-                    </div>
-                    <div className="h-1.5 rounded-full bg-secondary overflow-hidden">
-                      <motion.div
-                        initial={{ width: 0 }}
-                        animate={isInView ? { width: `${skill.level}%` } : {}}
-                        transition={{ duration: 1, delay: catIndex * 0.15 + i * 0.08, ease: 'easeOut' }}
-                        className="h-full rounded-full bg-gradient-to-r from-emerald-dim to-primary"
-                      />
-                    </div>
-                  </div>
+              <div className="flex flex-wrap gap-2.5">
+                {cat.skills.map((skill) => (
+                  <span
+                    key={skill}
+                    className="px-3 py-2 rounded-lg border border-primary/20 bg-primary/5 text-primary/90 text-sm font-mono"
+                  >
+                    {skill}
+                  </span>
                 ))}
               </div>
             </motion.div>
