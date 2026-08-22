@@ -22,9 +22,13 @@ export default function HeroSection() {
 
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.8 }} className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <a href="#projects" className="px-8 py-3 rounded-lg bg-primary text-primary-foreground font-semibold hover:bg-primary/90 transition-all box-glow">View My Work</a>
-          <a href="#contact" className="px-8 py-3 rounded-lg border border-primary/30 text-primary hover:bg-primary/10 transition-all flex items-center gap-2">
+          <a
+            href="/Henry-Mosiali-CV.pdf"
+            download="Henry-Mosiali-CV.pdf"
+            className="px-8 py-3 rounded-lg border border-primary/30 text-primary hover:bg-primary/10 transition-all flex items-center gap-2"
+          >
             <Download className="w-4 h-4" />
-            CV & Contact
+            Download CV
           </a>
         </motion.div>
       </div>
