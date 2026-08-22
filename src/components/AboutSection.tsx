@@ -27,13 +27,13 @@ export default function AboutSection() {
         <div className="grid md:grid-cols-2 gap-12 lg:gap-20 items-start">
           <motion.div initial={{ opacity: 0, x: -30 }} animate={isInView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.7, delay: 0.2 }}>
             <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-6">
-              I’m a Full-Stack Web Developer with 4+ years of hands-on development experience, focused on building modern web applications that are responsive, practical, and user-focused.
+              I’m a Full-Stack Web Developer with 4+ years of hands-on development experience, building modern web applications across frontend and backend technologies.
             </p>
             <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-6">
-              My work spans frontend interfaces, backend services, API integrations, dashboards, business websites, and full-stack applications. I enjoy turning ideas and requirements into interfaces and products that are clear, functional, and maintainable.
+              My experience includes professional frontend development as well as independent full-stack work. I’ve built recruitment platforms, business websites, dashboards, resource platforms, and other web applications with a focus on responsive interfaces, clear information architecture, API integration, and practical user experiences.
             </p>
             <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
-              I continue to grow through professional work and independent projects. My current focus includes building Forge, a frontend learning platform, while deepening my skills across the full web development stack.
+              I’m continuously developing my skills through professional work, formal learning, and independent projects. Right now, I’m building Forge, a frontend learning platform designed to help developers practice and improve their skills through an interactive experience.
             </p>
           </motion.div>
 
