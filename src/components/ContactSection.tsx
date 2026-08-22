@@ -1,6 +1,6 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
-import { Mail, Phone, MapPin, Github, ExternalLink, Download } from 'lucide-react';
+import { Mail, Phone, MapPin, ExternalLink, Download } from 'lucide-react';
 
 export default function ContactSection() {
   const ref = useRef(null);
@@ -50,25 +50,29 @@ export default function ContactSection() {
                   <Mail className="w-4 h-4 text-primary" />
                   <span className="text-sm">henrymosiali@gmail.com</span>
                 </a>
-                <a href="tel:+2347040722017" className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors">
+                <a href="tel:+2348134255086" className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors">
                   <Phone className="w-4 h-4 text-primary" />
-                  <span className="text-sm">+234 704 072 2017</span>
+                  <span className="text-sm">+234 813 425 5086</span>
                 </a>
                 <div className="flex items-center gap-3 text-muted-foreground">
                   <MapPin className="w-4 h-4 text-primary" />
                   <span className="text-sm">Lagos, Nigeria</span>
                 </div>
-                <a href="https://henry-proj.vercel.app" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors">
+                <a href="https://henrymosiali.vercel.app" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors">
                   <ExternalLink className="w-4 h-4 text-primary" />
-                  <span className="text-sm">henry-proj.vercel.app</span>
+                  <span className="text-sm">henrymosiali.vercel.app</span>
                 </a>
               </div>
             </div>
 
-            <button className="w-full px-6 py-3 rounded-lg bg-primary text-primary-foreground font-semibold hover:bg-primary/90 transition-all box-glow flex items-center justify-center gap-2">
+            <a
+              href="/Henry-Mosiali-CV.pdf"
+              download="Henry-Mosiali-CV.pdf"
+              className="w-full px-6 py-3 rounded-lg bg-primary text-primary-foreground font-semibold hover:bg-primary/90 transition-all box-glow flex items-center justify-center gap-2"
+            >
               <Download className="w-4 h-4" />
-              Download Resume
-            </button>
+              Download CV
+            </a>
           </motion.div>
 
           <motion.form
