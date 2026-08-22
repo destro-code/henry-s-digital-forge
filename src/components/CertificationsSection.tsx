@@ -1,6 +1,6 @@
 import { motion, useInView } from 'framer-motion';
-import { ExternalLink, ShieldCheck } from 'lucide-react';
-import { useRef } from 'react';
+import { ExternalLink, ShieldCheck, X } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
 
 const certifications = [
   {
@@ -39,6 +39,24 @@ const certifications = [
 export default function CertificationsSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-70px' });
+  const [selectedCertificate, setSelectedCertificate] = useState<(typeof certifications)[number] | null>(null);
+
+  useEffect(() => {
+    if (!selectedCertificate) return;
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setSelectedCertificate(null);
+    };
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    document.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [selectedCertificate]);
 
   return (
     <section id="certifications" className="py-24 md:py-32 px-6">
@@ -81,14 +99,13 @@ export default function CertificationsSection() {
               </div>
 
               <div className="flex flex-wrap gap-3 mt-7 pt-5 border-t border-border/50">
-                <a
-                  href={certificate.file}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <button
+                  type="button"
+                  onClick={() => setSelectedCertificate(certificate)}
                   className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90 transition-opacity"
                 >
                   View Certificate <ExternalLink className="w-4 h-4" />
-                </a>
+                </button>
                 {certificate.verification && (
                   <a
                     href={certificate.verification}
@@ -104,6 +121,42 @@ export default function CertificationsSection() {
           ))}
         </div>
       </div>
+
+      {selectedCertificate && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-background/90 backdrop-blur-md p-4 md:p-8"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="certificate-modal-title"
+          onMouseDown={(event) => {
+            if (event.target === event.currentTarget) setSelectedCertificate(null);
+          }}
+        >
+          <div className="relative w-full max-w-5xl max-h-[92vh] flex flex-col items-center">
+            <div className="flex items-center justify-between w-full mb-3 px-1">
+              <h2 id="certificate-modal-title" className="text-sm md:text-base font-semibold text-foreground">
+                {selectedCertificate.title} · {selectedCertificate.year}
+              </h2>
+              <button
+                type="button"
+                onClick={() => setSelectedCertificate(null)}
+                className="p-2 rounded-lg bg-background/80 border border-border text-foreground hover:bg-primary/10 hover:text-primary transition-colors"
+                aria-label="Close certificate viewer"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            <div className="w-full overflow-auto rounded-xl border border-border/70 bg-background/95 shadow-2xl">
+              <img
+                src={selectedCertificate.file}
+                alt={`${selectedCertificate.title} certificate`}
+                className="block w-full h-auto object-contain"
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
