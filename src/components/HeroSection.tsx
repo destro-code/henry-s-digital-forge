@@ -34,8 +34,9 @@ export default function HeroSection() {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="text-muted-foreground text-base md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed"
         >
-          Building scalable, production-grade web applications with{' '}
-          <span className="text-primary">6+ years</span> of expertise in React, Node.js, and modern cloud architecture.
+          Building modern, production-ready web applications with{' '}
+          <span className="text-primary">4+ years of hands-on development experience</span>{' '}
+          across frontend and backend technologies.
         </motion.p>
 
         <motion.div
@@ -55,7 +56,7 @@ export default function HeroSection() {
             className="px-8 py-3 rounded-lg border border-primary/30 text-primary hover:bg-primary/10 transition-all flex items-center gap-2"
           >
             <Download className="w-4 h-4" />
-            Download CV
+            CV & Contact
           </a>
         </motion.div>
       </div>
@@ -66,7 +67,7 @@ export default function HeroSection() {
         transition={{ delay: 1.5, duration: 1 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
       >
-        <a href="#about" className="text-primary/50 hover:text-primary transition-colors animate-bounce block">
+        <a href="#about" className="text-primary/50 hover:text-primary transition-colors animate-bounce block" aria-label="Scroll to About section">
           <ArrowDown className="w-6 h-6" />
         </a>
       </motion.div>
