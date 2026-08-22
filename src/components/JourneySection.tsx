@@ -1,19 +1,13 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Award, Code2, GraduationCap, Rocket, Sparkles } from 'lucide-react';
+import { Award, GraduationCap, Rocket, Sparkles } from 'lucide-react';
 
 const journey = [
-  {
-    year: '2020',
-    title: 'Started Exploring Web Development',
-    description: 'Began learning programming and web development fundamentals, experimenting with technologies and building early projects.',
-    icon: Code2,
-  },
   {
     year: '2022',
     title: 'Programming Fundamentals Certification',
     subtitle: 'Programming Hub / Google Developers Launchpad',
-    description: 'Completed the Programming Fundamentals Certification Course, marking an early documented learning milestone.',
+    description: 'Completed the Programming Fundamentals Certification Course, establishing a documented foundation in core programming concepts.',
     date: 'July 10, 2022',
     icon: Award,
   },
@@ -34,9 +28,9 @@ const journey = [
     icon: GraduationCap,
   },
   {
-    year: 'Today',
+    year: 'Present',
     title: 'Full-Stack Web Development',
-    description: 'Building and deploying modern web applications across frontend and backend technologies while continuing to deepen engineering skills.',
+    description: 'Building and deploying modern web applications across frontend and backend technologies, including Forge as an ongoing independent project.',
     icon: Rocket,
   },
 ];
@@ -51,7 +45,7 @@ export default function JourneySection() {
         <motion.div initial={{ opacity: 0, y: 40 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.7 }} className="mb-16">
           <p className="font-mono text-primary text-sm tracking-widest uppercase mb-3">// Journey</p>
           <h2 className="text-3xl md:text-5xl font-bold text-foreground">Learning, Building & <span className="text-primary text-glow">Growing</span></h2>
-          <p className="text-muted-foreground max-w-2xl mt-5 leading-relaxed">A progression from learning the fundamentals to professional development and building full-stack applications.</p>
+          <p className="text-muted-foreground max-w-2xl mt-5 leading-relaxed">A progression from documented fundamentals to professional development and ongoing full-stack work.</p>
         </motion.div>
 
         <div className="relative">
