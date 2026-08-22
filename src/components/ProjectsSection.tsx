@@ -1,6 +1,6 @@
 import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
 import { ExternalLink } from 'lucide-react';
+import { useRef } from 'react';
 
 type Project = {
   title: string;
@@ -106,33 +106,26 @@ function FeaturedProject({ project, index }: { project: Project; index: number }
   const isInView = useInView(ref, { once: true, margin: '-80px' });
 
   return (
-    <motion.article
-      ref={ref}
-      initial={{ opacity: 0, y: 50 }}
-      animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.7, delay: 0.08 }}
-      className="glass rounded-2xl overflow-hidden hover:box-glow transition-all duration-500"
-    >
+    <motion.article ref={ref} initial={{ opacity: 0, y: 50 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.7, delay: 0.08 }} className="glass rounded-2xl overflow-hidden hover:box-glow transition-all duration-500">
       <div className="p-7 md:p-10 lg:p-12">
         <div className="flex items-start justify-between gap-6 mb-7">
           <div>
-            <span className="font-mono text-primary/60 text-sm">
-              {index === 0 ? 'Flagship Project' : `Featured ${String(index).padStart(2, '0')}`}
-            </span>
+            <span className="font-mono text-primary/60 text-sm">{index === 0 ? 'Flagship Project' : `Featured ${String(index).padStart(2, '0')}`}</span>
             <h3 className="text-3xl md:text-4xl font-bold text-foreground mt-2">{project.title}</h3>
           </div>
-          <a
-            href={project.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-3 rounded-lg border border-primary/20 text-primary hover:bg-primary/10 transition-all shrink-0"
-            aria-label={`Visit ${project.title}`}
-          >
+          <a href={project.url} target="_blank" rel="noopener noreferrer" className="p-3 rounded-lg border border-primary/20 text-primary hover:bg-primary/10 transition-all shrink-0" aria-label={`Visit ${project.title}`}>
             <ExternalLink className="w-5 h-5" />
           </a>
         </div>
 
         <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-8 max-w-3xl">{project.description}</p>
+
+        {index === 0 && (
+          <div className="mb-8 rounded-xl border border-primary/15 bg-primary/5 px-5 py-4">
+            <p className="font-mono text-primary text-xs uppercase tracking-wider mb-1">Current Focus</p>
+            <p className="text-foreground/75 text-sm leading-relaxed">An active independent project focused on making frontend development more practical through interactive learning and guided coding exercises.</p>
+          </div>
+        )}
 
         <div className="mb-8">
           <span className="font-mono text-primary text-xs uppercase tracking-wider">Role</span>
@@ -140,26 +133,11 @@ function FeaturedProject({ project, index }: { project: Project; index: number }
         </div>
 
         <div className="grid md:grid-cols-2 gap-5 mb-8">
-          <div className="bg-secondary/50 rounded-xl p-5">
-            <h4 className="font-mono text-primary text-xs uppercase tracking-wider mb-2">Challenge</h4>
-            <p className="text-foreground/70 text-sm leading-relaxed">{project.problem}</p>
-          </div>
-          <div className="bg-secondary/50 rounded-xl p-5">
-            <h4 className="font-mono text-primary text-xs uppercase tracking-wider mb-2">Approach</h4>
-            <p className="text-foreground/70 text-sm leading-relaxed">{project.solution}</p>
-          </div>
+          <div className="bg-secondary/50 rounded-xl p-5"><h4 className="font-mono text-primary text-xs uppercase tracking-wider mb-2">Challenge</h4><p className="text-foreground/70 text-sm leading-relaxed">{project.problem}</p></div>
+          <div className="bg-secondary/50 rounded-xl p-5"><h4 className="font-mono text-primary text-xs uppercase tracking-wider mb-2">Approach</h4><p className="text-foreground/70 text-sm leading-relaxed">{project.solution}</p></div>
         </div>
 
-        <div className="flex flex-wrap gap-2">
-          {project.tech.map((tech) => (
-            <span
-              key={tech}
-              className="px-3 py-1.5 rounded-full text-xs font-mono border border-primary/20 text-primary/80 bg-primary/5"
-            >
-              {tech}
-            </span>
-          ))}
-        </div>
+        <div className="flex flex-wrap gap-2">{project.tech.map((tech) => <span key={tech} className="px-3 py-1.5 rounded-full text-xs font-mono border border-primary/20 text-primary/80 bg-primary/5">{tech}</span>)}</div>
       </div>
     </motion.article>
   );
@@ -167,36 +145,10 @@ function FeaturedProject({ project, index }: { project: Project; index: number }
 
 function CompactProject({ project, index }: { project: Project; index: number }) {
   return (
-    <motion.article
-      initial={{ opacity: 0, y: 25 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-60px' }}
-      transition={{ duration: 0.5 }}
-      className="glass rounded-xl p-6 hover:box-glow transition-all duration-300"
-    >
-      <div className="flex items-start justify-between gap-4 mb-4">
-        <div>
-          <span className="font-mono text-primary/50 text-xs">{String(index + 1).padStart(2, '0')}</span>
-          <h3 className="text-xl font-bold text-foreground mt-1">{project.title}</h3>
-        </div>
-        <a
-          href={project.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-primary/70 hover:text-primary transition-colors"
-          aria-label={`Visit ${project.title}`}
-        >
-          <ExternalLink className="w-5 h-5" />
-        </a>
-      </div>
+    <motion.article initial={{ opacity: 0, y: 25 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-60px' }} transition={{ duration: 0.5 }} className="glass rounded-xl p-6 hover:box-glow transition-all duration-300">
+      <div className="flex items-start justify-between gap-4 mb-4"><div><span className="font-mono text-primary/50 text-xs">{String(index + 1).padStart(2, '0')}</span><h3 className="text-xl font-bold text-foreground mt-1">{project.title}</h3></div><a href={project.url} target="_blank" rel="noopener noreferrer" className="text-primary/70 hover:text-primary transition-colors" aria-label={`Visit ${project.title}`}><ExternalLink className="w-5 h-5" /></a></div>
       <p className="text-muted-foreground text-sm leading-relaxed mb-5">{project.description}</p>
-      <div className="flex flex-wrap gap-2">
-        {project.tech.map((tech) => (
-          <span key={tech} className="px-2.5 py-1 rounded-md text-[11px] font-mono border border-primary/15 text-primary/70">
-            {tech}
-          </span>
-        ))}
-      </div>
+      <div className="flex flex-wrap gap-2">{project.tech.map((tech) => <span key={tech} className="px-2.5 py-1 rounded-md text-[11px] font-mono border border-primary/15 text-primary/70">{tech}</span>)}</div>
     </motion.article>
   );
 }
@@ -210,40 +162,15 @@ export default function ProjectsSection() {
   return (
     <section id="projects" className="py-24 md:py-32 px-6">
       <div className="max-w-6xl mx-auto">
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 40 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7 }}
-          className="mb-12 md:mb-16"
-        >
+        <motion.div ref={ref} initial={{ opacity: 0, y: 40 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.7 }} className="mb-12 md:mb-16">
           <p className="font-mono text-primary text-sm tracking-widest uppercase mb-3">// Projects</p>
-          <h2 className="text-3xl md:text-5xl font-bold text-foreground">
-            Selected <span className="text-primary text-glow">Work</span>
-          </h2>
-          <p className="text-muted-foreground max-w-2xl mt-5 leading-relaxed">
-            A selection of professional and personal projects demonstrating how I approach frontend interfaces,
-            full-stack applications, and product-focused web experiences.
-          </p>
+          <h2 className="text-3xl md:text-5xl font-bold text-foreground">Selected <span className="text-primary text-glow">Work</span></h2>
+          <p className="text-muted-foreground max-w-2xl mt-5 leading-relaxed">A selection of professional and personal projects demonstrating how I approach frontend interfaces, full-stack applications, and product-focused web experiences.</p>
         </motion.div>
 
-        <div className="grid gap-8">
-          {featured.map((project, index) => (
-            <FeaturedProject key={project.title} project={project} index={index} />
-          ))}
-        </div>
+        <div className="grid gap-8">{featured.map((project, index) => <FeaturedProject key={project.title} project={project} index={index} />)}</div>
 
-        <div className="mt-20">
-          <div className="mb-8">
-            <p className="font-mono text-primary text-xs tracking-widest uppercase mb-2">// More Work</p>
-            <h3 className="text-2xl md:text-3xl font-bold text-foreground">Other Projects</h3>
-          </div>
-          <div className="grid md:grid-cols-2 gap-5">
-            {more.map((project, index) => (
-              <CompactProject key={project.title} project={project} index={index} />
-            ))}
-          </div>
-        </div>
+        <div className="mt-20"><div className="mb-8"><p className="font-mono text-primary text-xs tracking-widest uppercase mb-2">// More Work</p><h3 className="text-2xl md:text-3xl font-bold text-foreground">Other Projects</h3></div><div className="grid md:grid-cols-2 gap-5">{more.map((project, index) => <CompactProject key={project.title} project={project} index={index} />)}</div></div>
       </div>
     </section>
   );
