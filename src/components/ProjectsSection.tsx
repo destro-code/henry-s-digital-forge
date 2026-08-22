@@ -15,6 +15,16 @@ type Project = {
 
 const projects: Project[] = [
   {
+    title: 'Forge',
+    url: 'https://forge2-gamma.vercel.app/',
+    description: 'An interactive learning platform for frontend developers, built around hands-on coding practice, guided progression, and an in-browser development experience.',
+    role: 'Full-Stack Developer',
+    problem: 'Frontend learners need more than passive tutorials. They need a practical environment where they can write code, run it, receive feedback, and progress through structured exercises.',
+    solution: 'Built an interactive learning experience with an in-browser Monaco editor, exercise validation, progression logic, responsive interfaces, and a foundation for guided frontend development.',
+    tech: ['React', 'TypeScript', 'TanStack Start', 'Tailwind CSS', 'Monaco Editor'],
+    featured: true,
+  },
+  {
     title: 'Artemis Hiring',
     url: 'https://www.artemishiring.co.uk/',
     description: 'Professional recruitment platform for the UK market, presented through a polished and responsive web experience.',
@@ -52,7 +62,6 @@ const projects: Project[] = [
     problem: 'NYSC participants can encounter information spread across different sources, making useful resources harder to navigate.',
     solution: 'Created an information-rich platform with a clear structure, responsive UI, and straightforward navigation.',
     tech: ['React', 'TypeScript', 'Tailwind', 'Vercel'],
-    featured: true,
   },
   {
     title: 'WorkFlow Pro',
@@ -107,10 +116,18 @@ function FeaturedProject({ project, index }: { project: Project; index: number }
       <div className="p-7 md:p-10 lg:p-12">
         <div className="flex items-start justify-between gap-6 mb-7">
           <div>
-            <span className="font-mono text-primary/60 text-sm">Featured {String(index + 1).padStart(2, '0')}</span>
+            <span className="font-mono text-primary/60 text-sm">
+              {index === 0 ? 'Flagship Project' : `Featured ${String(index).padStart(2, '0')}`}
+            </span>
             <h3 className="text-3xl md:text-4xl font-bold text-foreground mt-2">{project.title}</h3>
           </div>
-          <a href={project.url} target="_blank" rel="noopener noreferrer" className="p-3 rounded-lg border border-primary/20 text-primary hover:bg-primary/10 transition-all shrink-0" aria-label={`Visit ${project.title}`}>
+          <a
+            href={project.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-3 rounded-lg border border-primary/20 text-primary hover:bg-primary/10 transition-all shrink-0"
+            aria-label={`Visit ${project.title}`}
+          >
             <ExternalLink className="w-5 h-5" />
           </a>
         </div>
@@ -135,7 +152,12 @@ function FeaturedProject({ project, index }: { project: Project; index: number }
 
         <div className="flex flex-wrap gap-2">
           {project.tech.map((tech) => (
-            <span key={tech} className="px-3 py-1.5 rounded-full text-xs font-mono border border-primary/20 text-primary/80 bg-primary/5">{tech}</span>
+            <span
+              key={tech}
+              className="px-3 py-1.5 rounded-full text-xs font-mono border border-primary/20 text-primary/80 bg-primary/5"
+            >
+              {tech}
+            </span>
           ))}
         </div>
       </div>
@@ -145,19 +167,35 @@ function FeaturedProject({ project, index }: { project: Project; index: number }
 
 function CompactProject({ project, index }: { project: Project; index: number }) {
   return (
-    <motion.article initial={{ opacity: 0, y: 25 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-60px' }} transition={{ duration: 0.5 }} className="glass rounded-xl p-6 hover:box-glow transition-all duration-300">
+    <motion.article
+      initial={{ opacity: 0, y: 25 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-60px' }}
+      transition={{ duration: 0.5 }}
+      className="glass rounded-xl p-6 hover:box-glow transition-all duration-300"
+    >
       <div className="flex items-start justify-between gap-4 mb-4">
         <div>
           <span className="font-mono text-primary/50 text-xs">{String(index + 1).padStart(2, '0')}</span>
           <h3 className="text-xl font-bold text-foreground mt-1">{project.title}</h3>
         </div>
-        <a href={project.url} target="_blank" rel="noopener noreferrer" className="text-primary/70 hover:text-primary transition-colors" aria-label={`Visit ${project.title}`}>
+        <a
+          href={project.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-primary/70 hover:text-primary transition-colors"
+          aria-label={`Visit ${project.title}`}
+        >
           <ExternalLink className="w-5 h-5" />
         </a>
       </div>
       <p className="text-muted-foreground text-sm leading-relaxed mb-5">{project.description}</p>
       <div className="flex flex-wrap gap-2">
-        {project.tech.map((tech) => <span key={tech} className="px-2.5 py-1 rounded-md text-[11px] font-mono border border-primary/15 text-primary/70">{tech}</span>)}
+        {project.tech.map((tech) => (
+          <span key={tech} className="px-2.5 py-1 rounded-md text-[11px] font-mono border border-primary/15 text-primary/70">
+            {tech}
+          </span>
+        ))}
       </div>
     </motion.article>
   );
@@ -172,14 +210,27 @@ export default function ProjectsSection() {
   return (
     <section id="projects" className="py-24 md:py-32 px-6">
       <div className="max-w-6xl mx-auto">
-        <motion.div ref={ref} initial={{ opacity: 0, y: 40 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.7 }} className="mb-12 md:mb-16">
+        <motion.div
+          ref={ref}
+          initial={{ opacity: 0, y: 40 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.7 }}
+          className="mb-12 md:mb-16"
+        >
           <p className="font-mono text-primary text-sm tracking-widest uppercase mb-3">// Projects</p>
-          <h2 className="text-3xl md:text-5xl font-bold text-foreground">Selected <span className="text-primary text-glow">Work</span></h2>
-          <p className="text-muted-foreground max-w-2xl mt-5 leading-relaxed">A selection of professional and personal projects demonstrating how I approach frontend interfaces, full-stack applications, and product-focused web experiences.</p>
+          <h2 className="text-3xl md:text-5xl font-bold text-foreground">
+            Selected <span className="text-primary text-glow">Work</span>
+          </h2>
+          <p className="text-muted-foreground max-w-2xl mt-5 leading-relaxed">
+            A selection of professional and personal projects demonstrating how I approach frontend interfaces,
+            full-stack applications, and product-focused web experiences.
+          </p>
         </motion.div>
 
         <div className="grid gap-8">
-          {featured.map((project, index) => <FeaturedProject key={project.title} project={project} index={index} />)}
+          {featured.map((project, index) => (
+            <FeaturedProject key={project.title} project={project} index={index} />
+          ))}
         </div>
 
         <div className="mt-20">
@@ -188,7 +239,9 @@ export default function ProjectsSection() {
             <h3 className="text-2xl md:text-3xl font-bold text-foreground">Other Projects</h3>
           </div>
           <div className="grid md:grid-cols-2 gap-5">
-            {more.map((project, index) => <CompactProject key={project.title} project={project} index={index} />)}
+            {more.map((project, index) => (
+              <CompactProject key={project.title} project={project} index={index} />
+            ))}
           </div>
         </div>
       </div>
