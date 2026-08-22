@@ -7,9 +7,25 @@ const journey = [
     year: '2022',
     title: 'Programming Fundamentals Certification',
     subtitle: 'Programming Hub / Google Developers Launchpad',
-    description: 'Completed the Programming Fundamentals Certification Course, establishing a documented foundation in core programming concepts.',
+    description: 'Completed the Programming Fundamentals Certification Course, documenting an early milestone in my development journey.',
     date: 'July 10, 2022',
     icon: Award,
+  },
+  {
+    year: '2023',
+    title: 'Frontend Development in Practice',
+    subtitle: 'Fastlane · Frontend Web Developer',
+    description: 'Worked on responsive frontend interfaces for a digital top-up platform, gaining practical experience translating product requirements into usable web experiences.',
+    date: 'Feb 2023 – Dec 2023',
+    icon: Sparkles,
+  },
+  {
+    year: '2024',
+    title: 'Professional Frontend Development',
+    subtitle: 'Artemis Hiring · Frontend Web Developer',
+    description: 'Designed and developed frontend interfaces for a professional recruitment platform, working with React, Next.js, TypeScript and Tailwind CSS.',
+    date: 'Jan 2024 – Jan 2025',
+    icon: GraduationCap,
   },
   {
     year: '2025',
@@ -30,7 +46,8 @@ const journey = [
   {
     year: 'Present',
     title: 'Full-Stack Web Development',
-    description: 'Building and deploying modern web applications across frontend and backend technologies, including Forge as an ongoing independent project.',
+    subtitle: 'Independent Development',
+    description: 'Building and refining modern web applications across frontend and backend technologies, with Forge as a current independent project.',
     icon: Rocket,
   },
 ];
@@ -45,7 +62,7 @@ export default function JourneySection() {
         <motion.div initial={{ opacity: 0, y: 40 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.7 }} className="mb-16">
           <p className="font-mono text-primary text-sm tracking-widest uppercase mb-3">// Journey</p>
           <h2 className="text-3xl md:text-5xl font-bold text-foreground">Learning, Building & <span className="text-primary text-glow">Growing</span></h2>
-          <p className="text-muted-foreground max-w-2xl mt-5 leading-relaxed">A progression from documented fundamentals to professional development and ongoing full-stack work.</p>
+          <p className="text-muted-foreground max-w-2xl mt-5 leading-relaxed">A documented progression from programming fundamentals to professional frontend work, formal development programmes and ongoing full-stack practice.</p>
         </motion.div>
 
         <div className="relative">
