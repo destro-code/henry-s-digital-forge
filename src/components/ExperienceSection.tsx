@@ -1,10 +1,9 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Briefcase, GraduationCap } from 'lucide-react';
+import { Briefcase } from 'lucide-react';
 
 const experiences = [
   {
-    type: 'work' as const,
     role: 'Frontend Web Developer',
     company: 'Artemis Hiring',
     period: 'Jan 2024 – Jan 2025',
@@ -12,29 +11,18 @@ const experiences = [
     points: [
       'Designed and developed the frontend experience for a professional recruitment platform using React, Next.js, TypeScript and Tailwind CSS.',
       'Built responsive interfaces for presenting recruitment services and job-related content across desktop and mobile devices.',
-      'Focused on clear information hierarchy, reusable UI patterns, responsive behaviour and a polished professional presentation.',
+      'Focused on clear information hierarchy, reusable UI patterns, responsive behaviour and polished visual presentation.',
     ],
   },
   {
-    type: 'work' as const,
-    role: 'Frontend Web Developer',
-    company: 'Fastlane',
-    period: 'Feb 2023 – Dec 2023',
+    role: 'Independent / Freelance Full-Stack Developer',
+    company: 'Independent',
+    period: 'Present',
     location: 'Remote',
     points: [
-      'Worked on the frontend of a digital top-up platform, translating product requirements into responsive web interfaces.',
-      'Focused on mobile usability, interface consistency and clear purchase flows across different screen sizes.',
-      'Collaborated around product and backend requirements to deliver frontend features and refinements.',
-    ],
-  },
-  {
-    type: 'education' as const,
-    role: 'ProDev Frontend — Professional Program',
-    company: 'ALX Software Engineering',
-    period: '2025',
-    location: '',
-    points: [
-      'Completed a 4-month ALX Software Engineering Programme in ProDev Frontend, strengthening professional frontend development skills.',
+      'Build and deploy independent web applications across frontend and full-stack projects.',
+      'Develop responsive interfaces using React, TypeScript, Next.js and Tailwind CSS, alongside backend technologies including Node.js, Express, MongoDB and Supabase.',
+      'Integrate external APIs and third-party services while continuing to deepen full-stack engineering skills through practical projects.',
     ],
   },
 ];
@@ -57,7 +45,7 @@ export default function ExperienceSection() {
             Professional <span className="text-primary text-glow">Experience</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mt-5 leading-relaxed">
-            Selected professional work and structured learning milestones from my development journey.
+            Selected professional work and ongoing independent development across frontend and full-stack web applications.
           </p>
         </motion.div>
 
@@ -75,7 +63,7 @@ export default function ExperienceSection() {
                 <div className="absolute left-2.5 md:left-4 top-1 w-3 h-3 rounded-full bg-primary box-glow" />
                 <div className="glass rounded-xl p-6 md:p-8 hover:box-glow transition-all duration-300">
                   <div className="flex items-center gap-2 mb-1">
-                    {exp.type === 'work' ? <Briefcase className="w-4 h-4 text-primary" /> : <GraduationCap className="w-4 h-4 text-primary" />}
+                    <Briefcase className="w-4 h-4 text-primary" />
                     <span className="font-mono text-primary text-xs">{exp.period}</span>
                     {exp.location && <span className="text-muted-foreground text-xs">· {exp.location}</span>}
                   </div>
