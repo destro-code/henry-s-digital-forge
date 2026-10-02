@@ -1,94 +1,92 @@
-import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
-import { Award, GraduationCap, Rocket, Sparkles } from 'lucide-react';
+import Reveal from './Reveal';
+import SectionHeader from './SectionHeader';
 
-const journey = [
+const milestones = [
   {
     year: '2022',
-    title: 'Programming Fundamentals Certification',
-    subtitle: 'Programming Hub / Google Developers Launchpad',
-    description: 'Completed the Programming Fundamentals Certification Course, documenting an early milestone in my development journey.',
+    kind: 'Learning',
+    title: 'Programming fundamentals',
+    text: 'Completed the Programming Fundamentals Certification Course with Programming Hub / Google Developers Launchpad, the first documented milestone.',
     date: 'July 10, 2022',
-    icon: Award,
   },
   {
     year: '2023',
-    title: 'Frontend Development in Practice',
-    subtitle: 'Fastlane · Frontend Web Developer',
-    description: 'Worked on responsive frontend interfaces for a digital top-up platform, gaining practical experience translating product requirements into usable web experiences.',
-    date: 'Feb 2023 – Dec 2023',
-    icon: Sparkles,
+    kind: 'Professional',
+    title: 'Frontend in practice',
+    text: 'First professional role. Learned to turn product requirements into usable, responsive interfaces.',
+    date: 'Feb – Dec 2023',
   },
   {
     year: '2024',
-    title: 'Professional Frontend Development',
-    subtitle: 'Artemis Hiring · Frontend Web Developer',
-    description: 'Designed and developed frontend interfaces for a professional recruitment platform, working with React, Next.js, TypeScript and Tailwind CSS.',
+    kind: 'Professional',
+    title: 'Deeper frontend craft',
+    text: 'Moved into a larger product with React, Next.js, TypeScript and Tailwind CSS, with more focus on hierarchy and reusable UI.',
     date: 'Jan 2024 – Jan 2025',
-    icon: GraduationCap,
   },
   {
     year: '2025',
-    title: 'Professional Foundations',
-    subtitle: 'ALX',
-    description: 'Completed Professional Development Skills for the Digital Age as part of continued professional development.',
+    kind: 'Programme',
+    title: 'Professional foundations',
+    text: 'Completed Professional Development Skills for the Digital Age with ALX.',
     date: 'April 15, 2025',
-    icon: Sparkles,
   },
   {
     year: '2025',
+    kind: 'Programme',
     title: 'ALX ProDev Frontend',
-    subtitle: 'ALX Software Engineering',
-    description: 'Completed a 4-month ALX Software Engineering Programme in ProDev Frontend.',
+    text: 'Completed the 4-month ALX Software Engineering Programme in ProDev Frontend.',
     date: 'August 22, 2025',
-    icon: GraduationCap,
   },
   {
-    year: 'Present',
-    title: 'Full-Stack Web Development',
-    subtitle: 'Independent Development',
-    description: 'Building and refining modern web applications across frontend and backend technologies, with Forge as a current independent project.',
-    icon: Rocket,
+    year: 'Now',
+    kind: 'Independent',
+    title: 'Full-stack, and Forge',
+    text: 'Building and refining web applications across frontend and backend, with Forge as the current independent project.',
+    date: 'Present',
+    current: true,
   },
 ];
 
 export default function JourneySection() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
-
   return (
-    <section id="journey" className="py-24 md:py-32 px-6">
-      <div ref={ref} className="max-w-5xl mx-auto">
-        <motion.div initial={{ opacity: 0, y: 40 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.7 }} className="mb-16">
-          <p className="font-mono text-primary text-sm tracking-widest uppercase mb-3">// Journey</p>
-          <h2 className="text-3xl md:text-5xl font-bold text-foreground">Learning, Building & <span className="text-primary text-glow">Growing</span></h2>
-          <p className="text-muted-foreground max-w-2xl mt-5 leading-relaxed">A documented progression from programming fundamentals to professional frontend work, formal development programmes and ongoing full-stack practice.</p>
-        </motion.div>
+    <section id="journey" aria-labelledby="journey-title" className="section-space border-t border-border">
+      <div className="container-page">
+        <SectionHeader
+          index="03"
+          chapter="How I developed"
+          titleId="journey-title"
+          title={
+            <>
+              Learning, then <span className="italic text-primary">shipping,</span> then going full-stack.
+            </>
+          }
+          intro="The milestones that shaped how I work. Role details follow in Experience."
+        />
 
-        <div className="relative">
-          <div className="absolute left-4 md:left-6 top-0 bottom-0 w-px bg-gradient-to-b from-primary/50 via-primary/20 to-transparent" />
-          <div className="space-y-8">
-            {journey.map((item, index) => {
-              const Icon = item.icon;
-              return (
-                <motion.article key={`${item.year}-${item.title}`} initial={{ opacity: 0, x: -20 }} animate={isInView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.6, delay: index * 0.1 }} className="relative pl-12 md:pl-16">
-                  <div className="absolute left-0.5 md:left-2 top-1 w-8 h-8 rounded-full border border-primary/30 bg-background flex items-center justify-center">
-                    <Icon className="w-4 h-4 text-primary" />
+        <ol className="relative">
+          <span className="absolute bottom-0 left-[4.5px] top-2 w-px bg-border sm:left-[7.25rem]" aria-hidden="true" />
+          {milestones.map((m, i) => (
+            <li key={`${m.year}-${m.title}`}>
+              <Reveal delay={(i % 3) * 0.05}>
+                <div className="relative grid gap-x-8 pb-10 pl-8 sm:grid-cols-[6.5rem_1fr] sm:pl-0 md:pb-12">
+                  <span
+                    className={`absolute left-0 top-2 h-[10px] w-[10px] sm:left-[6.75rem] ${m.current ? 'bg-primary' : 'border border-muted bg-background'}`}
+                    aria-hidden="true"
+                  />
+                  <p className={`font-display text-4xl leading-none sm:text-right ${m.current ? 'text-primary' : 'text-foreground'}`}>{m.year}</p>
+                  <div className="mt-3 sm:ml-8 sm:mt-0">
+                    <p className="meta-label flex flex-wrap gap-x-3">
+                      <span className="text-primary">{m.kind}</span>
+                      <span>{m.date}</span>
+                    </p>
+                    <h3 className="mt-2 text-xl font-medium">{m.title}</h3>
+                    <p className="mt-2 max-w-xl leading-relaxed text-muted">{m.text}</p>
                   </div>
-                  <div className="glass rounded-xl p-6 md:p-8">
-                    <div className="flex flex-wrap items-center gap-3 mb-2">
-                      <span className="font-mono text-primary text-sm">{item.year}</span>
-                      {item.date && <span className="text-muted-foreground text-xs">{item.date}</span>}
-                    </div>
-                    <h3 className="text-foreground font-bold text-lg md:text-xl">{item.title}</h3>
-                    {item.subtitle && <p className="text-primary/70 font-medium text-sm mt-1">{item.subtitle}</p>}
-                    <p className="text-muted-foreground text-sm md:text-base leading-relaxed mt-4 max-w-3xl">{item.description}</p>
-                  </div>
-                </motion.article>
-              );
-            })}
-          </div>
-        </div>
+                </div>
+              </Reveal>
+            </li>
+          ))}
+        </ol>
       </div>
     </section>
   );
