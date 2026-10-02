@@ -1,94 +1,112 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 120 20% 3%;
-    --foreground: 140 10% 88%;
-
-    --card: 120 15% 6%;
-    --card-foreground: 140 10% 88%;
-
-    --popover: 120 15% 6%;
-    --popover-foreground: 140 10% 88%;
-
-    --primary: 152 100% 50%;
-    --primary-foreground: 120 20% 3%;
-
-    --secondary: 120 10% 12%;
-    --secondary-foreground: 140 10% 88%;
-
-    --muted: 120 8% 10%;
-    --muted-foreground: 140 5% 50%;
-
-    --accent: 152 100% 50%;
-    --accent-foreground: 120 20% 3%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 120 10% 14%;
-    --input: 120 10% 14%;
-    --ring: 152 100% 50%;
-
-    --radius: 0.75rem;
-
-    --sidebar-background: 120 15% 5%;
-    --sidebar-foreground: 140 10% 88%;
-    --sidebar-primary: 152 100% 50%;
-    --sidebar-primary-foreground: 120 20% 3%;
-    --sidebar-accent: 120 10% 12%;
-    --sidebar-accent-foreground: 140 10% 88%;
-    --sidebar-border: 120 10% 14%;
-    --sidebar-ring: 152 100% 50%;
-
-    --emerald-glow: 152 100% 50%;
-    --emerald-dim: 152 60% 30%;
-    --glass-bg: 120 15% 6%;
-    --glass-border: 152 40% 20%;
-  }
-}
-
-@layer base {
-  * {
-    @apply border-border;
-  }
-
-  body {
-    @apply bg-background text-foreground font-sans;
-    font-family: 'Space Grotesk', sans-serif;
+    --background: 222 16% 6%;
+    --foreground: 40 28% 92%;
+    --surface: 222 13% 9%;
+    --surface-raised: 222 12% 13%;
+    --border: 222 9% 20%;
+    --muted-foreground: 40 9% 68%;
+    --primary: 21 100% 56%;
+    --primary-foreground: 222 16% 6%;
+    --signal: 188 62% 62%;
+    --destructive: 0 84% 68%;
+    color-scheme: dark;
   }
 
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-background font-sans text-foreground antialiased;
+    overflow-x: clip;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: hsl(var(--primary) / 0.9);
+    color: hsl(var(--primary-foreground));
+  }
+
+  :focus-visible {
+    outline: 2px solid hsl(var(--primary));
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 }
 
-@layer utilities {
-  .font-mono-code {
-    font-family: 'JetBrains Mono', monospace;
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
   }
 
-  .text-glow {
-    text-shadow: 0 0 20px hsl(152 100% 50% / 0.5), 0 0 40px hsl(152 100% 50% / 0.2);
+  .section-space {
+    @apply py-24 md:py-32;
   }
 
-  .box-glow {
-    box-shadow: 0 0 20px hsl(152 100% 50% / 0.15), 0 0 60px hsl(152 100% 50% / 0.05);
+  .eyebrow {
+    @apply font-mono text-[0.72rem] uppercase tracking-[0.2em] text-primary;
   }
 
-  .glass {
-    background: hsl(120 15% 6% / 0.7);
-    backdrop-filter: blur(20px);
-    border: 1px solid hsl(152 40% 20% / 0.3);
+  .section-title {
+    @apply font-display text-[2.6rem] leading-[1.02] tracking-tight text-foreground sm:text-5xl md:text-6xl;
   }
 
-  .glass-strong {
-    background: hsl(120 15% 6% / 0.85);
-    backdrop-filter: blur(30px);
-    border: 1px solid hsl(152 40% 20% / 0.4);
+  .meta-label {
+    @apply font-mono text-[0.7rem] uppercase tracking-[0.16em] text-muted;
+  }
+
+  .btn {
+    @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-md px-6 text-[0.95rem] font-medium transition-colors duration-200;
+  }
+
+  .btn-sm {
+    @apply min-h-11 px-4 text-sm;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-primary-foreground hover:bg-[hsl(21_100%_63%)];
+  }
+
+  .btn-secondary {
+    @apply border border-foreground/25 text-foreground hover:border-primary hover:text-primary;
+  }
+
+  .text-link {
+    @apply inline-flex min-h-11 items-center gap-1.5 text-[0.95rem] font-medium text-foreground underline decoration-primary/60 decoration-1 underline-offset-[6px] transition-colors hover:text-primary;
+  }
+
+  .chip {
+    @apply inline-flex items-center rounded-sm border border-border px-2.5 py-1 font-mono text-xs text-foreground/85;
+  }
+
+  .input {
+    @apply block min-h-12 w-full rounded-md border border-border bg-background px-4 py-3 text-base text-foreground transition-colors placeholder:text-muted/60 hover:border-foreground/30 focus:border-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 aria-[invalid=true]:border-destructive;
+  }
+
+  .grid-backdrop {
+    background-image:
+      linear-gradient(hsl(var(--foreground) / 0.045) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--foreground) / 0.045) 1px, transparent 1px);
+    background-size: 56px 56px;
   }
 }

@@ -1,38 +1,32 @@
 import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
 import AboutSection from '@/components/AboutSection';
-import SkillsSection from '@/components/SkillsSection';
 import ProjectsSection from '@/components/ProjectsSection';
 import JourneySection from '@/components/JourneySection';
 import ExperienceSection from '@/components/ExperienceSection';
+import SkillsSection from '@/components/SkillsSection';
 import CertificationsSection from '@/components/CertificationsSection';
 import ContactSection from '@/components/ContactSection';
+import Footer from '@/components/Footer';
 
-const Index = () => {
-  return (
-    <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
-      <Navbar />
+const Index = () => (
+  <div className="min-h-screen overflow-x-clip bg-background text-foreground">
+    <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:left-3 focus:top-3 focus:z-[70] focus:bg-primary focus:px-4 focus:py-3 focus:text-primary-foreground">
+      Skip to content
+    </a>
+    <Navbar />
+    <main id="main">
       <HeroSection />
       <AboutSection />
       <ProjectsSection />
-      <SkillsSection />
       <JourneySection />
       <ExperienceSection />
+      <SkillsSection />
       <CertificationsSection />
       <ContactSection />
-
-      <footer className="py-8 px-6 border-t border-border">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
-          <p className="font-mono">
-            <span className="text-primary">{'>'}</span> Built by Henry Mosiali © {new Date().getFullYear()}
-          </p>
-          <p className="font-mono text-xs">
-            Crafted with React + TypeScript + Three.js
-          </p>
-        </div>
-      </footer>
-    </div>
-  );
-};
+    </main>
+    <Footer />
+  </div>
+);
 
 export default Index;
