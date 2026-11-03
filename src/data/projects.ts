@@ -21,8 +21,8 @@ export const projects: Project[] = [
     tier: 'flagship',
     title: 'Forge',
     subtitle: 'Frontend Engineering Academy',
-    url: 'https://forge2-gamma.vercel.app/',
-    github: 'https://github.com/destro-code/forge2',
+    url: 'https://forge-academia-1.vercel.app/learn/modules/module-0-1',
+    github: 'https://github.com/destro-code/Forge-Academia-1',
     image: '/previews/forge.webp',
     description:
       'An interactive learning platform for frontend developers, built around hands-on coding practice, guided progression, and an in-browser development experience.',
